@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>DAILY ENGLISH — Lộ Trình A1 - C2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ios-bg: #F2F4F8;
+      --ios-card: #FFFFFF;
+      --ios-blue: #007AFF;
+      --ios-indigo: #5856D6;
+      --ios-green: #34C759;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--ios-bg);
+      color: #1C1C1E;
+      overscroll-behavior-y: none;
+    }
+    textarea, input {
+      user-select: text;
+    }
+    /* Chuyển động chạm mượt chuẩn iOS */
+    .ios-touch {
+      transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease, box-shadow 0.22s ease;
+    }
+    .ios-touch:active {
+      transform: scale(0.95);
+      opacity: 0.9;
+    }
+    .ios-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 26px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+    }
+    .ios-glass-bar {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .fade-enter {
+      animation: fadeSlideUp 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.985);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    .pulse-ring {
+      animation: pulseRing 2.4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    }
+    @keyframes pulseRing {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0.35), 0 12px 30px rgba(0, 122, 255, 0.3); }
+      50% { box-shadow: 0 0 0 14px rgba(0, 122, 255, 0), 0 16px 36px rgba(0, 122, 255, 0.4); }
+    }
+    /* Ẩn thanh cuộn nhưng vẫn cuộn mượt */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between pb-28">
+
+  <!-- HEADER CỐ ĐỊNH: TÊN LỚN NỔI BẬT GÓC TRÊN BÊN TRÁI -->
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-slate-200/60 px-5 py-3.5">
+    <div class="max-w-xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-blue-500/25">
+          <i class="fa-solid fa-graduation-cap text-xl"></i>
+        </div>
+        <div>
+          <h1 class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-500 bg-clip-text text-transparent leading-none">
+            ENGLISH ACADEMY
+          </h1>
+          <p class="text-[11px] font-semibold text-slate-400 tracking-wider uppercase mt-1">
+            Lộ Trình Chuẩn Quốc Tế A1 – C2
+          </p>
+        </div>
+      </div>
+
+      <!-- Huy hiệu tiến độ nhanh -->
+      <div class="flex items-center gap-2 bg-slate-100/90 px-3.5 py-2 rounded-2xl border border-slate-200/60">
+        <i class="fa-solid fa-circle-check text-emerald-500 text-sm"></i>
+        <span id="headerTotalChecks" class="text-xs font-bold text-slate-700">0 lượt</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- VÙNG NỘI DUNG CHÍNH -->
+  <main class="flex-1 w-full max-w-xl mx-auto px-4 pt-5">
+
+    <!-- ==================== TAB 1: SẢNH CHÍNH ==================== -->
+    <section id="tab-lobby" class="fade-enter space-y-5">
+      <!-- Thẻ Đồng Hồ & Ngày Tháng Thời Điểm Học -->
+      <div class="ios-card p-7 text-center relative overflow-hidden">
+        <div class="absolute -top-16 -right-16 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-16 -left-16 w-40 h-40 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-bold mb-4">
+          <span class="w-2 h-2 rounded-full bg-blue-600 animate-ping"></span>
+          THỜI ĐIỂM HỌC TẬP HIỆN TẠI
+        </div>
+
+        <!-- Đồng hồ số lớn -->
+        <div id="liveClock" class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-900 tabular-nums my-1">
+          00:00:00
+        </div>
+
+        <!-- Ngày tháng năm -->
+        <div id="liveDate" class="text-sm font-semibold text-slate-500 mt-2 capitalize">
+          Đang tải ngày...
+        </div>
+
+        <!-- Thống kê nhanh trong sảnh -->
+        <div class="grid grid-cols-3 gap-2.5 mt-7 pt-6 border-t border-slate-100">
+          <div class="bg-slate-50/90 rounded-2xl p-3">
+            <div class="text-[11px] font-semibold text-slate-400">CẤP ĐỘ</div>
+            <div class="text-base font-extrabold text-slate-800 mt-0.5">A1 → C2</div>
+          </div>
+          <div class="bg-slate-50/90 rounded-2xl p-3">
+            <div class="text-[11px] font-semibold text-slate-400">CHỦ ĐỀ</div>
+            <div id="lobbyTotalTopics" class="text-base font-extrabold text-blue-600 mt-0.5">0 bài</div>
+          </div>
+          <div class="bg-slate-50/90 rounded-2xl p-3">
+            <div class="text-[11px] font-semibold text-slate-400">HOÀN THÀNH</div>
+            <div id="lobbyMasteredTopics" class="text-base font-extrabold text-emerald-600 mt-0.5">0 bài</div>
+          </div>
+        </div>
+
+        <!-- NÚT START LỚN -->
+        <button onclick="startFromLobby()" class="ios-touch pulse-ring mt-7 w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-extrabold text-lg tracking-wide flex items-center justify-center gap-3">
+          <span>START HỌC NGAY</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <!-- Quy tắc mở khóa lộ trình -->
+      <div class="ios-card p-5">
+        <div class="flex items-center gap-3 mb-2.5">
+          <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center">
+            <i class="fa-solid fa-unlock-keyhole"></i>
+          </div>
+          <h3 class="font-bold text-slate-800 text-sm">Nguyên Lý Mở Khóa Lộ Trình</h3>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Mỗi chủ đề có <strong>4 dấu tích hoàn thành</strong> ở bên phải. Bạn cần học đủ <strong>4 lần (4/4 dấu tích)</strong> ở bài hiện tại để tự động mở khóa chủ đề tiếp theo. Toàn bộ tiến độ và tài liệu nạp thêm được lưu trữ vĩnh viễn trên thiết bị.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 2: LỘ TRÌNH HỌC (A1 -> C2 & CHỦ ĐỀ) ==================== -->
+    <section id="tab-roadmap" class="hidden fade-enter space-y-4">
+
+      <!-- VIEW 2A: DANH SÁCH CẤP ĐỘ A1 -> C2 -->
+      <div id="view-levels" class="space-y-3.5">
+        <div class="flex items-center justify-between px-1">
+          <div>
+            <h2 class="text-lg font-extrabold text-slate-900">Chọn Cấp Độ Học</h2>
+            <p class="text-xs text-slate-500 font-medium">Lộ trình bài bản từ Cơ bản (A1) đến Thành thạo (C2)</p>
+          </div>
+          <button onclick="switchTab('lobby')" class="ios-touch text-xs font-bold text-blue-600 bg-blue-50 px-3 py-2 rounded-xl">
+            <i class="fa-solid fa-clock mr-1"></i> Sảnh
+          </button>
+        </div>
+
+        <div id="levelsContainer" class="grid grid-cols-1 gap-3"></div>
+      </div>
+
+      <!-- VIEW 2B: DANH SÁCH LỘ TRÌNH CHỦ ĐỀ TRONG CẤP ĐỘ -->
+      <div id="view-topics" class="hidden space-y-4">
+        <div class="ios-card p-4 flex items-center justify-between">
+          <button onclick="backToLevels()" class="ios-touch flex items-center gap-2 text-sm font-bold text-slate-700 bg-slate-100 px-3.5 py-2 rounded-xl">
+            <i class="fa-solid fa-chevron-left text-xs"></i>
+            <span>Cấp độ</span>
+          </button>
+          <div class="text-right">
+            <div id="currentLevelBadge" class="text-sm font-extrabold text-blue-600">CẤP ĐỘ A1</div>
+            <div id="currentLevelSub" class="text-[11px] font-semibold text-slate-400">Danh sách chủ đề</div>
+          </div>
+        </div>
+
+        <div id="topicsContainer" class="space-y-3"></div>
+      </div>
+
+      <!-- VIEW 2C: MÀN HÌNH HỌC TẬP TRỰC TIẾP TRONG BÀI -->
+      <div id="view-study" class="hidden space-y-4">
+        <div class="ios-card p-4 flex items-center justify-between">
+          <button onclick="closeStudySession()" class="ios-touch flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100 px-3.5 py-2 rounded-xl">
+            <i class="fa-solid fa-xmark"></i>
+            <span>Thoát</span>
+          </button>
+          <div class="text-center">
+            <div id="studyTopicTitle" class="text-sm font-extrabold text-slate-800 truncate max-w-[180px]">Chủ đề</div>
+            <div id="studyProgressText" class="text-[11px] font-bold text-blue-600">Câu 1 / 10</div>
+          </div>
+          <!-- 4 Dấu tích hiện tại của bài đang học -->
+          <div id="studyHeaderChecks" class="flex items-center gap-1"></div>
+        </div>
+
+        <!-- Thanh tiến trình câu -->
+        <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+          <div id="studyProgressBar" class="h-full bg-gradient-to-r from-blue-500 to-indigo-600 transition-all duration-300" style="width: 10%"></div>
+        </div>
+
+        <!-- Thẻ học từ vựng / cụm từ / câu -->
+        <div class="ios-card p-6 text-center space-y-5 relative">
+          <div class="flex items-center justify-between">
+            <span id="cardLevelTag" class="px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-extrabold">A1</span>
+            <button onclick="speakCurrentItem()" class="ios-touch w-11 h-11 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shadow-sm">
+              <i class="fa-solid fa-volume-high text-lg"></i>
+            </button>
+          </div>
+
+          <!-- Cụm từ / Từ vựng chính -->
+          <div class="py-2">
+            <h3 id="studyWord" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"></h3>
+            <p id="studyIpa" class="text-sm font-semibold text-blue-600 mt-1.5 font-mono"></p>
+          </div>
+
+          <!-- Nghĩa Tiếng Việt -->
+          <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+            <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Nghĩa Tiếng Việt</div>
+            <div id="studyMeaning" class="text-lg font-extrabold text-emerald-600 mt-1"></div>
+          </div>
+
+          <!-- Câu ví dụ ngữ cảnh -->
+          <div class="bg-blue-50/50 rounded-2xl p-4 text-left border border-blue-100/80 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold text-blue-500 uppercase tracking-wider">Ngữ cảnh ứng dụng</span>
+              <button onclick="speakCurrentExample()" class="ios-touch text-xs font-bold text-blue-600 flex items-center gap-1 bg-white px-2.5 py-1 rounded-lg shadow-sm">
+                <i class="fa-solid fa-play text-[10px]"></i> Nghe câu
+              </button>
+            </div>
+            <p id="studyExampleEn" class="text-sm font-bold text-slate-800 leading-snug"></p>
+            <p id="studyExampleVi" class="text-xs font-medium text-slate-500"></p>
+          </div>
+
+          <!-- Điều hướng câu trước / tiếp theo / hoàn thành lượt -->
+          <div class="grid grid-cols-2 gap-3 pt-2">
+            <button onclick="prevStudyCard()" class="ios-touch py-3.5 rounded-2xl bg-slate-100 text-slate-700 font-bold text-sm flex items-center justify-center gap-2">
+              <i class="fa-solid fa-arrow-left text-xs"></i> Câu trước
+            </button>
+            <button id="nextStudyBtn" onclick="nextStudyCard()" class="ios-touch py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md shadow-blue-500/20">
+              <span>Tiếp theo</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================== TAB 3: NẠP TÀI LIỆU ==================== -->
+    <section id="tab-import" class="hidden fade-enter space-y-5">
+
+      <!-- NỘI DUNG 1: PROMPT LẤY DỮ LIỆU CHO GEMINI -->
+      <div class="ios-card p-5 space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <div>
+              <h2 class="text-base font-extrabold text-slate-900">1. Prompt Lấy Dữ Liệu Chuẩn</h2>
+              <p class="text-[11px] text-slate-500 font-medium">Copy gửi cho Gemini để soạn bài đầy đủ, không lấy bản demo</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bộ chọn nhanh Cấp độ & Chủ đề cần soạn vào Prompt -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div>
+            <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">Cấp độ muốn tạo</label>
+            <select id="promptLevelSelect" onchange="updatePromptPreview()" class="w-full rounded-xl bg-slate-100 border border-slate-200 px-3 py-2.5 text-xs font-bold text-slate-800 focus:outline-none">
+              <option value="A1">A1 - Cơ bản (Beginner)</option>
+              <option value="A2">A2 - Sơ cấp (Elementary)</option>
+              <option value="B1">B1 - Trung cấp (Intermediate)</option>
+              <option value="B2">B2 - Trung cao cấp (Upper-Intermediate)</option>
+              <option value="C1">C1 - Cao cấp (Advanced)</option>
+              <option value="C2">C2 - Thành thạo (Mastery)</option>
+              <option value="ALL">Tất cả cấp độ (A1 đến C2)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">Chủ đề yêu cầu (Tùy chọn)</label>
+            <input id="promptTopicInput" oninput="updatePromptPreview()" type="text" placeholder="VD: Giao tiếp sân bay, Đời sống..." class="w-full rounded-xl bg-slate-100 border border-slate-200 px-3 py-2.5 text-xs font-semibold text-slate-800 focus:outline-none" />
+          </div>
+        </div>
+
+        <!-- Khung hiển thị Prompt viết sẵn -->
+        <textarea id="geminiPromptBox" readonly rows="8" class="w-full rounded-2xl bg-slate-900 text-emerald-300 font-mono text-xs p-3.5 leading-relaxed focus:outline-none"></textarea>
+
+        <button onclick="copyGeminiPrompt()" class="ios-touch w-full py-3.5 rounded-2xl bg-indigo-600 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-md shadow-indigo-500/20">
+          <i class="fa-regular fa-copy"></i>
+          <span>COPY PROMPT GỬI GEMINI</span>
+        </button>
+      </div>
+
+      <!-- NỘI DUNG 2: BẢNG DÁN DỮ LIỆU VÀ NẠP VĨNH VIỄN -->
+      <div class="ios-card p-5 space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <div>
+              <h2 class="text-base font-extrabold text-slate-900">2. Bảng Dán Dữ Liệu & Nạp</h2>
+              <p class="text-[11px] text-slate-500 font-medium">Dán kết quả JSON từ Gemini vào đây để lưu vĩnh viễn</p>
+            </div>
+          </div>
+        </div>
+
+        <textarea id="jsonPasteBox" rows="7" placeholder='Dán mã JSON từ Gemini vào đây (bắt đầu bằng [ hoặc {)...' class="w-full rounded-2xl bg-slate-50 border border-slate-200 text-slate-800 font-mono text-xs p-3.5 focus:outline-none focus:border-blue-500"></textarea>
+
+        <div class="grid grid-cols-2 gap-2.5">
+          <button onclick="importJsonData('merge')" class="ios-touch py-3.5 rounded-2xl bg-emerald-600 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-emerald-500/20">
+            <i class="fa-solid fa-plus-circle"></i>
+            <span>NẠP THÊM VÀO KHO</span>
+          </button>
+          <button onclick="importJsonData('replace')" class="ios-touch py-3.5 rounded-2xl bg-blue-600 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-blue-500/20">
+            <i class="fa-solid fa-rotate"></i>
+            <span>GHI ĐÈ TOÀN BỘ</span>
+          </button>
+        </div>
+
+        <!-- Quản lý sao lưu & khôi phục dữ liệu -->
+        <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+          <button onclick="exportCurrentData()" class="ios-touch flex-1 py-2.5 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-download"></i> Sao lưu JSON
+          </button>
+          <button onclick="resetToDefaultData()" class="ios-touch flex-1 py-2.5 rounded-xl bg-rose-50 text-rose-600 font-bold text-xs flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-trash-can"></i> Khôi phục gốc
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- TOAST THÔNG BÁO MƯỢT MÀ -->
+  <div id="toastBox" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 transform -translate-y-2">
+    <div class="bg-slate-900/95 text-white px-4 py-2.5 rounded-2xl shadow-xl text-xs font-bold flex items-center gap-2 backdrop-blur-md">
+      <i id="toastIcon" class="fa-solid fa-circle-check text-emerald-400"></i>
+      <span id="toastText">Đã lưu thành công!</span>
+    </div>
+  </div>
+
+  <!-- THANH ĐIỀU HƯỚNG DƯỚI CÙNG PHONG CÁCH IPHONE -->
+  <nav class="fixed bottom-0 left-0 right-0 z-40 ios-glass-bar pb-safe">
+    <div class="max-w-xl mx-auto grid grid-cols-3 px-4 py-2">
+      <button id="nav-lobby" onclick="switchTab('lobby')" class="ios-touch flex flex-col items-center justify-center py-1.5 rounded-2xl text-blue-600">
+        <i class="fa-solid fa-house-chimney text-lg"></i>
+        <span class="text-[11px] font-bold mt-1">Sảnh Học</span>
+      </button>
+      <button id="nav-roadmap" onclick="switchTab('roadmap')" class="ios-touch flex flex-col items-center justify-center py-1.5 rounded-2xl text-slate-400">
+        <i class="fa-solid fa-layer-group text-lg"></i>
+        <span class="text-[11px] font-bold mt-1">Lộ Trình A1-C2</span>
+      </button>
+      <button id="nav-import" onclick="switchTab('import')" class="ios-touch flex flex-col items-center justify-center py-1.5 rounded-2xl text-slate-400">
+        <i class="fa-solid fa-file-import text-lg"></i>
+        <span class="text-[11px] font-bold mt-1">Nạp Tài Liệu</span>
+      </button>
+    </div>
+  </nav>
+
+  <script>
+    // =========================================================================
+    // 1. HỆ THỐNG ÂM THANH MƯỢT MÀ (WEB AUDIO SYNTH + WEB SPEECH TTS)
+    // =========================================================================
+    let audioCtx = null;
+    function getAudioCtx() {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) audioCtx = new AudioContextClass();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playSound(type = 'tap') {
+      try {
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        const now = ctx.currentTime;
+
+        if (type === 'tap') {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(520, now);
+          osc.frequency.exponentialRampToValueAtTime(220, now + 0.045);
+          gain.gain.setValueAtTime(0.12, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.045);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.05);
+        } else if (type === 'success') {
+          const notes = [523.25, 659.25, 783.99, 1046.5];
+          notes.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.075);
+            gain.gain.setValueAtTime(0.16, now + idx * 0.075);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.075 + 0.25);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + idx * 0.075);
+            osc.stop(now + idx * 0.075 + 0.26);
+          });
+        } else if (type === 'locked') {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(160, now);
+          osc.frequency.setValueAtTime(130, now + 0.08);
+          gain.gain.setValueAtTime(0.1, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.19);
+        }
+      } catch (e) {}
+    }
+
+    let cachedEnglishVoice = null;
+    function loadVoices() {
+      if (!('speechSynthesis' in window)) return;
+      const voices = window.speechSynthesis.getVoices();
+      if (voices.length > 0) {
+        cachedEnglishVoice =
+          voices.find(v => v.lang === 'en-US' && (v.name.includes('Samantha') || v.name.includes('Google') || v.name.includes('Natural'))) ||
+          voices.find(v => v.lang === 'en-US') ||
+          voices.find(v => v.lang.startsWith('en'));
+      }
+    }
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.onvoiceschanged = loadVoices;
+      loadVoices();
+    }
+
+    function speakText(text, rate = 0.95) {
+      if (!('speechSynthesis' in window) || !text) return;
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'en-US';
+      utter.rate = rate;
+      if (cachedEnglishVoice) utter.voice = cachedEnglishVoice;
+      window.speechSynthesis.speak(utter);
+    }
+
+    // =========================================================================
+    // 2. DỮ LIỆU CẤP ĐỘ A1 - C2 & KHO LƯU TRỮ VĨNH VIỄN (LOCALSTORAGE)
+    // =========================================================================
+    const STORAGE_DATA_KEY = 'ENG_DAILY_ROADMAP_DATA_V1';
+    const STORAGE_PROGRESS_KEY = 'ENG_DAILY_PROGRESS_CHECKS_V1';
+
+    const LEVEL_META = [
+      { code: 'A1', name: 'A1 - Cơ Bản (Beginner)', desc: 'Giao tiếp phản xạ nền tảng & sinh hoạt hằng ngày', color: 'from-emerald-500 to-teal-600', badge: 'bg-emerald-50 text-emerald-700' },
+      { code: 'A2', name: 'A2 - Sơ Cấp (Elementary)', desc: 'Mở rộng cụm từ giao tiếp xã hội, du lịch & mua sắm', color: 'from-blue-500 to-cyan-600', badge: 'bg-blue-50 text-blue-700' },
+      { code: 'B1', name: 'B1 - Trung Cấp (Intermediate)', desc: 'Diễn đạt ý kiến, kể chuyện & xử lý tình huống thực tế', color: 'from-indigo-500 to-blue-600', badge: 'bg-indigo-50 text-indigo-700' },
+      { code: 'B2', name: 'B2 - Trung Cao Cấp (Upper-Inter)', desc: 'Tranh luận, thuyết trình & diễn đạt tự nhiên lưu loát', color: 'from-violet-500 to-purple-600', badge: 'bg-violet-50 text-violet-700' },
+      { code: 'C1', name: 'C1 - Cao Cấp (Advanced)', desc: 'Ngôn ngữ học thuật, thành ngữ chuyên sâu & phản biện', color: 'from-rose-500 to-pink-600', badge: 'bg-rose-50 text-rose-700' },
+      { code: 'C2', name: 'C2 - Thành Thạo (Mastery)', desc: 'Làm chủ sắc thái ngôn ngữ & diễn đạt chuẩn bản xứ', color: 'from-amber-500 to-orange-600', badge: 'bg-amber-50 text-amber-700' }
+    ];
+
+    const DEFAULT_CURRICULUM = {
+      A1: [
+        {
+          id: 'a1-topic-1',
+          title: 'Chào Hỏi & Làm Quen Tự Nhiên',
+          items: [
+            { word: 'Nice to meet you', ipa: '/naɪs tə miːt juː/', meaning: 'Rất vui được gặp bạn', exampleEn: 'Hello! It is really nice to meet you today.', exampleVi: 'Xin chào! Hôm nay thực sự rất vui được gặp bạn.' },
+            { word: 'How is it going?', ipa: '/haʊ ɪz ɪt ˈɡəʊɪŋ/', meaning: 'Dạo này mọi thứ thế nào?', exampleEn: 'Hey Alex, how is it going with your studies?', exampleVi: 'Chào Alex, việc học của bạn dạo này thế nào rồi?' },
+            { word: 'Where are you from?', ipa: '/weər ɑːr juː frɒm/', meaning: 'Bạn đến từ đâu?', exampleEn: 'Excuse me, where are you from originally?', exampleVi: 'Xin lỗi, quê gốc của bạn ở đâu vậy?' },
+            { word: 'Keep in touch', ipa: '/kiːp ɪn tʌtʃ/', meaning: 'Giữ liên lạc nhé', exampleEn: 'Let us keep in touch via email.', exampleVi: 'Chúng mình hãy giữ liên lạc qua email nhé.' }
+          ]
+        },
+        {
+          id: 'a1-topic-2',
+          title: 'Thói Quen Sinh Hoạt Hằng Ngày',
+          items: [
+            { word: 'Wake up early', ipa: '/weɪk ʌp ˈɜːli/', meaning: 'Thức dậy sớm', exampleEn: 'I always wake up early to exercise.', exampleVi: 'Tôi luôn thức dậy sớm để tập thể dục.' },
+            { word: 'Have a quick breakfast', ipa: '/hæv ə kwɪk ˈbrekfəst/', meaning: 'Ăn sáng nhanh', exampleEn: 'She usually has a quick breakfast at home.', exampleVi: 'Cô ấy thường ăn sáng nhanh ở nhà.' },
+            { word: 'Take a short break', ipa: '/teɪk ə ʃɔːt breɪk/', meaning: 'Nghỉ giải lao ngắn', exampleEn: 'Let us take a short break and drink some water.', exampleVi: 'Hãy nghỉ giải lao một lát và uống chút nước.' },
+            { word: 'Go to bed on time', ipa: '/ɡəʊ tə bed ɒn taɪm/', meaning: 'Đi ngủ đúng giờ', exampleEn: 'Trying to go to bed on time improves your health.', exampleVi: 'Cố gắng đi ngủ đúng giờ giúp cải thiện sức khỏe của bạn.' }
+          ]
+        },
+        {
+          id: 'a1-topic-3',
+          title: 'Gọi Món & Nhà Hàng',
+          items: [
+            { word: 'Can I see the menu?', ipa: '/kæn aɪ siː ðə ˈmenjuː/', meaning: 'Cho tôi xem thực đơn được không?', exampleEn: 'Excuse me, can I see the menu, please?', exampleVi: 'Xin lỗi, cho tôi xem thực đơn được không ạ?' },
+            { word: 'A table for two', ipa: '/ə ˈteɪbl fɔːr tuː/', meaning: 'Bàn cho hai người', exampleEn: 'We would like a table for two near the window.', exampleVi: 'Chúng tôi muốn một bàn cho hai người gần cửa sổ.' },
+            { word: 'Pay by credit card', ipa: '/peɪ baɪ ˈkredɪt kɑːd/', meaning: 'Thanh toán bằng thẻ tín dụng', exampleEn: 'Can I pay by credit card here?', exampleVi: 'Ở đây tôi có thể thanh toán bằng thẻ tín dụng không?' }
+          ]
+        }
+      ],
+      A2: [
+        {
+          id: 'a2-topic-1',
+          title: 'Du Lịch & Hỏi Đường Sân Bay',
+          items: [
+            { word: 'Boarding pass', ipa: '/ˈbɔːdɪŋ pɑːs/', meaning: 'Thẻ lên máy bay', exampleEn: 'Please show your passport and boarding pass.', exampleVi: 'Vui lòng xuất trình hộ chiếu và thẻ lên máy bay của bạn.' },
+            { word: 'Carry-on luggage', ipa: '/ˈkæri ɒn ˈlʌɡɪdʒ/', meaning: 'Hành lý xách tay', exampleEn: 'You are allowed one piece of carry-on luggage.', exampleVi: 'Bạn được phép mang một kiện hành lý xách tay.' },
+            { word: 'Catch a flight', ipa: '/kætʃ ə flaɪt/', meaning: 'Bắt chuyến bay', exampleEn: 'I have to leave now to catch a flight.', exampleVi: 'Tôi phải đi ngay bây giờ để kịp bắt chuyến bay.' }
+          ]
+        },
+        {
+          id: 'a2-topic-2',
+          title: 'Mua Sắm & Đổi Trả Hàng Hóa',
+          items: [
+            { word: 'Try this on', ipa: '/traɪ ðɪs ɒn/', meaning: 'Mặc thử món này', exampleEn: 'Where is the fitting room? I want to try this on.', exampleVi: 'Phòng thử đồ ở đâu vậy? Tôi muốn mặc thử món này.' },
+            { word: 'Ask for a refund', ipa: '/ɑːsk fɔːr ə ˈriːfʌnd/', meaning: 'Yêu cầu hoàn tiền', exampleEn: 'Keep the receipt in case you ask for a refund.', exampleVi: 'Hãy giữ hóa đơn phòng khi bạn yêu cầu hoàn tiền.' }
+          ]
+        }
+      ],
+      B1: [
+        {
+          id: 'b1-topic-1',
+          title: 'Nêu Quan Điểm & Thảo Luận',
+          items: [
+            { word: 'From my perspective', ipa: '/frɒm maɪ pəˈspektɪv/', meaning: 'Theo góc nhìn của tôi', exampleEn: 'From my perspective, learning daily is far more effective.', exampleVi: 'Theo góc nhìn của tôi, học mỗi ngày hiệu quả hơn nhiều.' },
+            { word: 'Take into account', ipa: '/teɪk ˈɪntə əˈkaʊnt/', meaning: 'Cân nhắc / Tính đến yếu tố', exampleEn: 'We need to take into account the weather conditions.', exampleVi: 'Chúng ta cần tính đến điều kiện thời tiết.' }
+          ]
+        },
+        {
+          id: 'b1-topic-2',
+          title: 'Sức Khỏe & Lối Sống Cân Bằng',
+          items: [
+            { word: 'Maintain a balanced diet', ipa: '/meɪnˈteɪn ə ˈbælənst ˈdaɪət/', meaning: 'Duy trì chế độ ăn cân bằng', exampleEn: 'It is essential to maintain a balanced diet.', exampleVi: 'Việc duy trì một chế độ ăn uống cân bằng là rất cần thiết.' },
+            { word: 'Relieve mental stress', ipa: '/rɪˈliːv ˈmentl stres/', meaning: 'Giải tỏa căng thẳng tinh thần', exampleEn: 'Listening to music helps relieve mental stress.', exampleVi: 'Nghe nhạc giúp giải tỏa căng thẳng tinh thần.' }
+          ]
+        }
+      ],
+      B2: [
+        {
+          id: 'b2-topic-1',
+          title: 'Thuyết Trình & Giải Quyết Vấn Đề',
+          items: [
+            { word: 'Address the root cause', ipa: '/əˈdres ðə ruːt kɔːz/', meaning: 'Giải quyết nguyên nhân gốc rễ', exampleEn: 'Our priority is to address the root cause of the issue.', exampleVi: 'Ưu tiên của chúng ta là giải quyết nguyên nhân gốc rễ của vấn đề.' },
+            { word: 'Jump to conclusions', ipa: '/dʒʌmp tə kənˈkluːʒnz/', meaning: 'Vội vàng kết luận', exampleEn: 'Do not jump to conclusions before checking all facts.', exampleVi: 'Đừng vội vàng kết luận trước khi kiểm tra toàn bộ sự thật.' }
+          ]
+        }
+      ],
+      C1: [
+        {
+          id: 'c1-topic-1',
+          title: 'Tư Duy Phản Biện & Học Thuật',
+          items: [
+            { word: 'Play devil’s advocate', ipa: '/pleɪ ˈdevlz ˈædvəkət/', meaning: 'Đưa ra ý kiến phản biện để kiểm chứng', exampleEn: 'Let me play devil’s advocate so we can test our plan.', exampleVi: 'Hãy để tôi đóng vai người phản biện để chúng ta kiểm tra kế hoạch.' },
+            { word: 'A double-edged sword', ipa: '/ə ˈdʌbl edʒd sɔːd/', meaning: 'Con dao hai lưỡi', exampleEn: 'Modern technology can be a double-edged sword.', exampleVi: 'Công nghệ hiện đại có thể là một con dao hai lưỡi.' }
+          ]
+        }
+      ],
+      C2: [
+        {
+          id: 'c2-topic-1',
+          title: 'Diễn Đạt Bản Xứ Tinh Tế (Mastery)',
+          items: [
+            { word: 'Read between the lines', ipa: '/riːd bɪˈtwiːn ðə laɪnz/', meaning: 'Hiểu rõ hàm ý ẩn sau câu chữ', exampleEn: 'A skilled interpreter knows how to read between the lines.', exampleVi: 'Một người phiên dịch giỏi biết cách nắm bắt hàm ý ẩn sau câu chữ.' },
+            { word: 'Nuance of expression', ipa: '/ˈnjuːɑːns ɒv ɪkˈspreʃn/', meaning: 'Sắc thái biểu đạt tinh tế', exampleEn: 'Mastering C2 requires capturing every nuance of expression.', exampleVi: 'Làm chủ trình độ C2 đòi hỏi nắm bắt từng sắc thái biểu đạt tinh tế.' }
+          ]
+        }
+      ]
+    };
+
+    let appData = {};
+    let progressChecks = {}; // Lưu số dấu tích (0 -> 4) theo topicId
+    let activeLevel = 'A1';
+    let activeTopic = null;
+    let currentCardIndex = 0;
+
+    function loadStorage() {
+      try {
+        const rawData = localStorage.getItem(STORAGE_DATA_KEY);
+        appData = rawData ? JSON.parse(rawData) : JSON.parse(JSON.stringify(DEFAULT_CURRICULUM));
+        LEVEL_META.forEach(lvl => {
+          if (!Array.isArray(appData[lvl.code])) appData[lvl.code] = [];
+        });
+      } catch (e) {
+        appData = JSON.parse(JSON.stringify(DEFAULT_CURRICULUM));
+      }
+
+      try {
+        const rawProg = localStorage.getItem(STORAGE_PROGRESS_KEY);
+        progressChecks = rawProg ? JSON.parse(rawProg) : {};
+      } catch (e) {
+        progressChecks = {};
+      }
+      updateGlobalStats();
+    }
+
+    function saveStorage() {
+      localStorage.setItem(STORAGE_DATA_KEY, JSON.stringify(appData));
+      localStorage.setItem(STORAGE_PROGRESS_KEY, JSON.stringify(progressChecks));
+      updateGlobalStats();
+    }
+
+    function getTopicChecks(topicId) {
+      return Math.min(4, Math.max(0, Number(progressChecks[topicId] || 0)));
+    }
+
+    function isTopicUnlocked(levelCode, index) {
+      if (index === 0) return true; // Bài đầu tiên của mỗi cấp độ luôn mở
+      const prevTopic = appData[levelCode][index - 1];
+      if (!prevTopic) return true;
+      return getTopicChecks(prevTopic.id) >= 4;
+    }
+
+    // =========================================================================
+    // 3. ĐỒNG HỒ & NGÀY THÁNG THỜI GIAN THỰC Ở SẢNH
+    // =========================================================================
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('vi-VN', {
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      const dateStr = now.toLocaleDateString('vi-VN', {
+        weekday: 'long',
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+      document.getElementById('liveClock').textContent = timeStr;
+      document.getElementById('liveDate').textContent = dateStr;
+    }
+    setInterval(updateClock, 1000);
+
+    function updateGlobalStats() {
+      let totalTopics = 0;
+      let masteredTopics = 0;
+      let totalChecks = 0;
+
+      LEVEL_META.forEach(lvl => {
+        const list = appData[lvl.code] || [];
+        totalTopics += list.length;
+        list.forEach(t => {
+          const c = getTopicChecks(t.id);
+          totalChecks += c;
+          if (c >= 4) masteredTopics++;
+        });
+      });
+
+      document.getElementById('lobbyTotalTopics').textContent = `${totalTopics} bài`;
+      document.getElementById('lobbyMasteredTopics').textContent = `${masteredTopics} bài`;
+      document.getElementById('headerTotalChecks').textContent = `${totalChecks} tích`;
+    }
+
+    // =========================================================================
+    // 4. ĐIỀU HƯỚNG TAB & RENDER CẤP ĐỘ A1 -> C2
+    // =========================================================================
+    function switchTab(tabName) {
+      playSound('tap');
+      const tabs = ['lobby', 'roadmap', 'import'];
+      tabs.forEach(t => {
+        const sec = document.getElementById(`tab-${t}`);
+        const nav = document.getElementById(`nav-${t}`);
+        if (t === tabName) {
+          sec.classList.remove('hidden');
+          nav.classList.remove('text-slate-400');
+          nav.classList.add('text-blue-600');
+        } else {
+          sec.classList.add('hidden');
+          nav.classList.remove('text-blue-600');
+          nav.classList.add('text-slate-400');
+        }
+      });
+
+      if (tabName === 'roadmap') {
+        backToLevels(false);
+      }
+    }
+
+    function startFromLobby() {
+      switchTab('roadmap');
+    }
+
+    function renderLevels() {
+      const container = document.getElementById('levelsContainer');
+      container.innerHTML = '';
+
+      LEVEL_META.forEach(lvl => {
+        const topics = appData[lvl.code] || [];
+        const completedCount = topics.filter(t => getTopicChecks(t.id) >= 4).length;
+        const percent = topics.length > 0 ? Math.round((completedCount / topics.length) * 100) : 0;
+
+        const card = document.createElement('div');
+        card.className = 'ios-card ios-touch p-5 cursor-pointer flex items-center justify-between gap-4';
+        card.onclick = () => openLevel(lvl.code);
+
+        card.innerHTML = `
+          <div class="flex items-center gap-4 min-w-0">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${lvl.color} text-white font-extrabold text-xl flex items-center justify-center shadow-md shrink-0">
+              ${lvl.code}
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h3 class="font-extrabold text-slate-900 text-base truncate">${lvl.name}</h3>
+              </div>
+              <p class="text-xs text-slate-500 font-medium truncate mt-0.5">${lvl.desc}</p>
+              <div class="flex items-center gap-3 mt-2">
+                <span class="text-[11px] font-bold ${lvl.badge} px-2.5 py-0.5 rounded-lg">
+                  ${topics.length} chủ đề
+                </span>
+                <span class="text-[11px] font-bold text-slate-400">
+                  Hoàn thành ${completedCount}/${topics.length} (${percent}%)
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="w-9 h-9 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function openLevel(levelCode) {
+      playSound('tap');
+      activeLevel = levelCode;
+      document.getElementById('view-levels').classList.add('hidden');
+      document.getElementById('view-study').classList.add('hidden');
+      document.getElementById('view-topics').classList.remove('hidden');
+      renderTopics(levelCode);
+    }
+
+    function backToLevels(withSound = true) {
+      if (withSound) playSound('tap');
+      document.getElementById('view-topics').classList.add('hidden');
+      document.getElementById('view-study').classList.add('hidden');
+      document.getElementById('view-levels').classList.remove('hidden');
+      renderLevels();
+    }
+
+    // =========================================================================
+    // 5. RENDER DANH SÁCH CHỦ ĐỀ & 4 DẤU TÍCH BÊN PHẢI
+    // =========================================================================
+    function buildFourCheckmarksHTML(count, isUnlocked) {
+      let html = '<div class="flex items-center gap-1.5 shrink-0">';
+      for (let i = 1; i <= 4; i++) {
+        const checked = i <= count;
+        if (checked) {
+          html += `
+            <div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-sm shadow-emerald-500/30">
+              <i class="fa-solid fa-check text-[11px]"></i>
+            </div>
+          `;
+        } else {
+          html += `
+            <div class="w-6 h-6 rounded-full ${isUnlocked ? 'bg-slate-100 border border-slate-300 text-slate-300' : 'bg-slate-100 border border-slate-200 text-slate-200'} flex items-center justify-center">
+              <i class="fa-solid fa-check text-[10px]"></i>
+            </div>
+          `;
+        }
+      }
+      html += '</div>';
+      return html;
+    }
+
+    function renderTopics(levelCode) {
+      const meta = LEVEL_META.find(m => m.code === levelCode);
+      document.getElementById('currentLevelBadge').textContent = meta ? meta.name : `CẤP ĐỘ ${levelCode}`;
+      const list = appData[levelCode] || [];
+      document.getElementById('currentLevelSub').textContent = `${list.length} chủ đề học tập • Đủ 4 tích mở bài mới`;
+
+      const container = document.getElementById('topicsContainer');
+      container.innerHTML = '';
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="ios-card p-8 text-center space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mx-auto">
+              <i class="fa-solid fa-folder-open text-xl"></i>
+            </div>
+            <p class="text-sm font-bold text-slate-700">Chưa có chủ đề nào ở cấp độ ${levelCode}</p>
+            <button onclick="switchTab('import')" class="ios-touch px-4 py-2.5 rounded-xl bg-blue-600 text-white text-xs font-bold">
+              Nạp tài liệu ngay
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      list.forEach((topic, idx) => {
+        const checks = getTopicChecks(topic.id);
+        const unlocked = isTopicUnlocked(levelCode, idx);
+        const itemCount = Array.isArray(topic.items) ? topic.items.length : 0;
+
+        const row = document.createElement('div');
+        row.className = `ios-card ios-touch p-4 flex items-center justify-between gap-3 ${unlocked ? 'cursor-pointer' : 'opacity-65 cursor-not-allowed'}`;
+        row.onclick = () => {
+          if (!unlocked) {
+            playSound('locked');
+            showToast('Hãy hoàn thành đủ 4 lần bài trước để mở khóa!', 'lock');
+            return;
+          }
+          startStudyTopic(levelCode, idx);
+        };
+
+        row.innerHTML = `
+          <div class="flex items-center gap-3.5 min-w-0">
+            <div class="w-11 h-11 rounded-2xl flex items-center justify-center font-extrabold text-sm shrink-0 ${
+              checks >= 4
+                ? 'bg-emerald-500 text-white shadow-sm shadow-emerald-500/25'
+                : unlocked
+                ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/25'
+                : 'bg-slate-200 text-slate-500'
+            }">
+              ${unlocked ? idx + 1 : '<i class="fa-solid fa-lock text-xs"></i>'}
+            </div>
+            <div class="min-w-0">
+              <h4 class="font-extrabold text-sm text-slate-900 truncate">${topic.title}</h4>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-[11px] font-semibold text-slate-500">${itemCount} mục từ/câu</span>
+                <span class="text-[11px] font-bold ${checks >= 4 ? 'text-emerald-600' : unlocked ? 'text-blue-600' : 'text-slate-400'}">
+                  • Đã học ${checks}/4 lần
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 DẤU TÍCH BÊN PHẢI -->
+          ${buildFourCheckmarksHTML(checks, unlocked)}
+        `;
+
+        container.appendChild(row);
+      });
+    }
+
+    // =========================================================================
+    // 6. PHIÊN HỌC BÀI & TỰ ĐỘNG TÍCH LŨY 4 LƯỢT ĐỂ MỞ KHÓA BÀI TIẾP THEO
+    // =========================================================================
+    function startStudyTopic(levelCode, topicIndex) {
+      playSound('tap');
+      const topic = appData[levelCode][topicIndex];
+      if (!topic || !Array.isArray(topic.items) || topic.items.length === 0) {
+        showToast('Chủ đề này chưa có nội dung từ vựng!', 'lock');
+        return;
+      }
+
+      activeLevel = levelCode;
+      activeTopic = topic;
+      currentCardIndex = 0;
+
+      document.getElementById('view-topics').classList.add('hidden');
+      document.getElementById('view-study').classList.remove('hidden');
+
+      renderStudyCard();
+    }
+
+    function renderStudyCard() {
+      const items = activeTopic.items;
+      const item = items[currentCardIndex];
+      const total = items.length;
+      const checks = getTopicChecks(activeTopic.id);
+
+      document.getElementById('studyTopicTitle').textContent = activeTopic.title;
+      document.getElementById('studyProgressText').textContent = `Mục ${currentCardIndex + 1} / ${total}`;
+      document.getElementById('studyHeaderChecks').innerHTML = buildFourCheckmarksHTML(checks, true);
+      document.getElementById('studyProgressBar').style.width = `${Math.round(((currentCardIndex + 1) / total) * 100)}%`;
+
+      document.getElementById('cardLevelTag').textContent = `CẤP ĐỘ ${activeLevel}`;
+      document.getElementById('studyWord').textContent = item.word || '';
+      document.getElementById('studyIpa').textContent = item.ipa || '';
+      document.getElementById('studyMeaning').textContent = item.meaning || '';
+      document.getElementById('studyExampleEn').textContent = item.exampleEn || '';
+      document.getElementById('studyExampleVi').textContent = item.exampleVi || '';
+
+      const nextBtn = document.getElementById('nextStudyBtn');
+      if (currentCardIndex === total - 1) {
+        nextBtn.innerHTML = `<i class="fa-solid fa-check-double text-xs"></i> <span>Hoàn thành lượt (+1 tích)</span>`;
+        nextBtn.className = 'ios-touch py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-md shadow-emerald-500/25';
+      } else {
+        nextBtn.innerHTML = `<span>Tiếp theo</span> <i class="fa-solid fa-arrow-right text-xs"></i>`;
+        nextBtn.className = 'ios-touch py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md shadow-blue-500/20';
+      }
+
+      speakText(item.word, 0.95);
+    }
+
+    function speakCurrentItem() {
+      if (!activeTopic) return;
+      const item = activeTopic.items[currentCardIndex];
+      speakText(item.word, 0.92);
+    }
+
+    function speakCurrentExample() {
+      if (!activeTopic) return;
+      const item = activeTopic.items[currentCardIndex];
+      speakText(item.exampleEn, 0.95);
+    }
+
+    function prevStudyCard() {
+      playSound('tap');
+      if (currentCardIndex > 0) {
+        currentCardIndex--;
+        renderStudyCard();
+      }
+    }
+
+    function nextStudyCard() {
+      const total = activeTopic.items.length;
+      if (currentCardIndex < total - 1) {
+        playSound('tap');
+        currentCardIndex++;
+        renderStudyCard();
+      } else {
+        completeStudyRound();
+      }
+    }
+
+    function completeStudyRound() {
+      playSound('success');
+      const currentChecks = getTopicChecks(activeTopic.id);
+      const newChecks = Math.min(4, currentChecks + 1);
+      progressChecks[activeTopic.id] = newChecks;
+      saveStorage();
+
+      if (newChecks === 4 && currentChecks < 4) {
+        showToast('Xuất sắc! Đã đủ 4/4 tích & Mở khóa bài tiếp theo!', 'check');
+      } else {
+        showToast(`Đã hoàn thành lượt học! (${newChecks}/4 dấu tích)`, 'check');
+      }
+
+      closeStudySession(false);
+    }
+
+    function closeStudySession(withSound = true) {
+      if (withSound) playSound('tap');
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      document.getElementById('view-study').classList.add('hidden');
+      document.getElementById('view-topics').classList.remove('hidden');
+      renderTopics(activeLevel);
+    }
+
+    // =========================================================================
+    // 7. TAB NẠP TÀI LIỆU: PROMPT VIẾT SẴN & BẢNG DÁN JSON LƯU VĨNH VIỄN
+    // =========================================================================
+    function updatePromptPreview() {
+      const levelChoice = document.getElementById('promptLevelSelect').value;
+      const customTopic = document.getElementById('promptTopicInput').value.trim();
+
+      const levelInstruction =
+        levelChoice === 'ALL'
+          ? 'Tất cả 6 cấp độ từ A1, A2, B1, B2, C1 đến C2 (mỗi cấp độ ít nhất 3 chủ đề thực tế)'
+          : `Cấp độ ${levelChoice} (${customTopic ? 'Chủ đề trọng tâm: ' + customTopic : 'Soạn 5 chủ đề giao tiếp thực tế khác nhau'})`;
+
+      const promptText = `Hãy đóng vai chuyên gia biên soạn giáo trình Tiếng Anh chuẩn CEFR Quốc Tế (A1 - C2).
+Hãy soạn bộ dữ liệu học Tiếng Anh cho: ${levelInstruction}.
+
+YÊU CẦU BẮT BUỘC (TUYỆT ĐỐI TUÂN THỦ):
+1. Dữ liệu phải ĐẦY ĐỦ, CHI TIẾT, KHÔNG làm bản demo rút gọn, KHÔNG dùng dấu "..." hay bình luận thừa.
+2. Mỗi chủ đề (topic) phải có từ 12 đến 20 mục từ vựng / cụm từ (chunking 2-4 từ) thiết thực nhất.
+3. Tuyệt đối không dùng âm bồi tiếng Việt. Phiên âm bắt buộc dùng chuẩn Quốc tế IPA.
+4. Trả về DUY NHẤT 1 khối mã JSON hợp lệ theo đúng cấu trúc dưới đây để tôi dán thẳng vào Web App:
+
+{
+  "${levelChoice === 'ALL' ? 'A1' : levelChoice}": [
+    {
+      "id": "${(levelChoice === 'ALL' ? 'a1' : levelChoice.toLowerCase())}-topic-custom-1",
+      "title": "Tên Chủ Đề Rõ Ràng Bằng Tiếng Việt",
+      "items": [
+        {
+          "word": "Cụm từ hoặc từ vựng tiếng Anh",
+          "ipa": "/phiên âm chuẩn IPA/",
+          "meaning": "Nghĩa tiếng Việt ngắn gọn, chuẩn xác",
+          "exampleEn": "Câu ví dụ tiếng Anh tự nhiên ứng dụng cụm từ trên.",
+          "exampleVi": "Bản dịch tiếng Việt tự nhiên của câu ví dụ."
+        }
+      ]
+    }
+  ]
+}`;
+
+      document.getElementById('geminiPromptBox').value = promptText;
+    }
+
+    function copyGeminiPrompt() {
+      playSound('tap');
+      const box = document.getElementById('geminiPromptBox');
+      navigator.clipboard.writeText(box.value).then(() => {
+        showToast('Đã copy Prompt! Hãy dán vào Gemini để lấy dữ liệu.', 'check');
+      });
+    }
+
+    function importJsonData(mode = 'merge') {
+      playSound('tap');
+      const raw = document.getElementById('jsonPasteBox').value.trim();
+      if (!raw) {
+        showToast('Vui lòng dán dữ liệu JSON vào ô trước khi nạp!', 'lock');
+        return;
+      }
+
+      try {
+        // Tự động làm sạch nếu người dùng copy cả cặp dấu ```json ... ```
+        const cleaned = raw.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/\s*```$/, '').trim();
+        const parsed = JSON.parse(cleaned);
+
+        if (mode === 'replace') {
+          appData = { A1: [], A2: [], B1: [], B2: [], C1: [], C2: [] };
+        }
+
+        let importedTopicsCount = 0;
+
+        // Hỗ trợ cả định dạng Object { "A1": [...], "B1": [...] } hoặc Mảng các topic kèm trường level
+        if (Array.isArray(parsed)) {
+          const targetLvl = document.getElementById('promptLevelSelect').value === 'ALL' ? 'A1' : document.getElementById('promptLevelSelect').value;
+          parsed.forEach((topic, idx) => {
+            if (topic && topic.title && Array.isArray(topic.items)) {
+              const lvl = (topic.level && appData[topic.level.toUpperCase()]) ? topic.level.toUpperCase() : targetLvl;
+              const topicId = topic.id || `${lvl.toLowerCase()}-${Date.now()}-${idx}`;
+              appData[lvl].push({ id: topicId, title: topic.title, items: topic.items });
+              importedTopicsCount++;
+            }
+          });
+        } else if (typeof parsed === 'object' && parsed !== null) {
+          LEVEL_META.forEach(lvl => {
+            if (Array.isArray(parsed[lvl.code])) {
+              parsed[lvl.code].forEach((topic, idx) => {
+                if (topic && topic.title && Array.isArray(topic.items)) {
+                  const topicId = topic.id || `${lvl.code.toLowerCase()}-${Date.now()}-${idx}`;
+                  const existingIdx = appData[lvl.code].findIndex(t => t.id === topicId || t.title === topic.title);
+                  if (existingIdx >= 0 && mode === 'merge') {
+                    appData[lvl.code][existingIdx].items = topic.items;
+                  } else {
+                    appData[lvl.code].push({ id: topicId, title: topic.title, items: topic.items });
+                  }
+                  importedTopicsCount++;
+                }
+              });
+            }
+          });
+        }
+
+        if (importedTopicsCount === 0) {
+          showToast('Không tìm thấy chủ đề hợp lệ trong JSON!', 'lock');
+          return;
+        }
+
+        saveStorage();
+        playSound('success');
+        document.getElementById('jsonPasteBox').value = '';
+        showToast(`Đã nạp thành công ${importedTopicsCount} chủ đề vào bộ nhớ vĩnh viễn!`, 'check');
+      } catch (err) {
+        playSound('locked');
+        showToast('Lỗi cú pháp JSON! Hãy kiểm tra lại dữ liệu dán vào.', 'lock');
+      }
+    }
+
+    function exportCurrentData() {
+      playSound('tap');
+      const dataStr = JSON.stringify(appData, null, 2);
+      const blob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `english-academy-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Đã tải file sao lưu JSON về máy!', 'check');
+    }
+
+    function resetToDefaultData() {
+      playSound('tap');
+      if (confirm('Khôi phục dữ liệu mặc định và xóa các tiến độ hiện tại?')) {
+        localStorage.removeItem(STORAGE_DATA_KEY);
+        localStorage.removeItem(STORAGE_PROGRESS_KEY);
+        loadStorage();
+        renderLevels();
+        showToast('Đã khôi phục dữ liệu gốc!', 'check');
+      }
+    }
+
+    // =========================================================================
+    // 8. TOAST THÔNG BÁO
+    // =========================================================================
+    let toastTimer = null;
+    function showToast(message, type = 'check') {
+      const box = document.getElementById('toastBox');
+      const text = document.getElementById('toastText');
+      const icon = document.getElementById('toastIcon');
+
+      text.textContent = message;
+      if (type === 'lock') {
+        icon.className = 'fa-solid fa-lock text-amber-400';
+      } else {
+        icon.className = 'fa-solid fa-circle-check text-emerald-400';
+      }
+
+      box.classList.remove('opacity-0', '-translate-y-2');
+      box.classList.add('opacity-100', 'translate-y-0');
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        box.classList.remove('opacity-100', 'translate-y-0');
+        box.classList.add('opacity-0', '-translate-y-2');
+      }, 2600);
+    }
+
+    // KHỞI CHẠY ỨNG DỤNG
+    window.addEventListener('DOMContentLoaded', () => {
+      updateClock();
+      loadStorage();
+      renderLevels();
+      updatePromptPreview();
+    });
+  </script>
+</body>
+</html>
